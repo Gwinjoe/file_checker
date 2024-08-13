@@ -1,9 +1,9 @@
 const filesRaw = {
-  html: 3000,
-  css: 4000,
-  js: 3200,
-  react: 8000,
-  tailwind: 4000,
+  html: Math.round(Math.random() * 10000),
+  css: Math.round(Math.random() * 10000),
+  js: Math.round(Math.random() * 10000),
+  react: Math.round(Math.random() * 10000),
+  tailwind: Math.round(Math.random() * 10000),
 };
 
 const randomColors = [
@@ -28,6 +28,7 @@ console.log(getRandomColor(randomColors));
 
 const container = document.querySelector(".container");
 const filesvalue = document.querySelector(".files-value");
+const reminderContainer = document.querySelector(".reminder-container");
 
 function graph(files) {
   const filesObj = Object.keys(files);
@@ -58,3 +59,11 @@ function graph(files) {
 }
 
 graph(filesRaw);
+
+setTimeout(() => {
+  reminderContainer.classList = "reminder-container";
+}, 2000);
+
+document.body.addEventListener("click", () => {
+  reminderContainer.classList = "reminder-container hidden";
+});
